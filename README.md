@@ -14,6 +14,7 @@ As an example
 FROM petermcd/python_autorun
 
 ENV GIT_REPOSITORY=https://github/user/some_rop.git
+ENV GIT_BRANCH=main
 
 EXPOSE 80
 ```

@@ -2,6 +2,7 @@
 
 DEFAULT_GIT="https://github.com/petermcd/Docker-Git-Python-AutoRun-Default-Site.git"
 GIT_REPOSITORY=$GIT_REPOSITORY
+GIT_BRANCH=main
 GIT_USERNAME=$GIT_USERNAME
 GIT_PASSWORD=$GIT_PASSWORD
 
@@ -10,8 +11,17 @@ then
   GIT_REPOSITORY=$DEFAULT_GIT
 fi
 
-mkdir /src/
-git clone "$GIT_REPOSITORY" /src
+mkdir -p /src/
+git clone "$GIT_REPOSITORY" /temp
+
+cd temp || exit
+if [ -n "$GIT_BRANCH" ]; then
+  git checkout "$GIT_BRANCH"
+fi
+cd - || exit
+
+mv /temp/* /src/
+rm -r /temp
 cd /src/ || exit
 
 chmod +x run.sh
