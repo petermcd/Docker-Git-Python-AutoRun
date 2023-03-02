@@ -6,8 +6,8 @@ set /p version=What would you like to set the version too?
 
 :: Create the buildx environment.
 ECHO Building the dockerx environment.
-docker buildx create --name petermcd/python_autorun
-docker buildx use %image%
+docker buildx create --name python_autorun
+docker buildx use python_autorun
 docker buildx inspect --bootstrap
 
 :: Build and push the image.
