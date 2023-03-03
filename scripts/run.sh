@@ -14,11 +14,12 @@ fi
 mkdir -p /src/
 git clone "$GIT_REPOSITORY" /temp
 
-cd temp || exit
+
 if [ -n "$GIT_BRANCH" ]; then
+  cd /temp || exit
   git checkout "$GIT_BRANCH"
+  cd - || exit
 fi
-cd - || exit
 
 mv /temp/* /src/
 rm -r /temp
