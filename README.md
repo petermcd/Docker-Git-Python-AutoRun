@@ -5,7 +5,7 @@ This package is the code behind the
 
 This repository is aimed to make it simple to run a website (or any other script) in a container.
 
-Simply create a environment variable GIT_REPOSITORY with the URL for the repo containing the code, ensure
+Simply create an environment variable GIT_REPOSITORY with the URL for the repo containing the code, ensure
 that repos contains a run.sh script as a setup script.
 
 As an example
